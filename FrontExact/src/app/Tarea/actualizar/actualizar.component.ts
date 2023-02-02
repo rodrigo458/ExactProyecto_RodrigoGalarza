@@ -32,4 +32,8 @@ export class ActualizarComponent implements OnInit {
       this.router.navigate(["listar"])
     })
   }
+
+  goBack() {
+    this.router.navigate(["listar"]);
+  }
 }

@@ -1,25 +1,43 @@
+<style>
+    img {
+        width: 51px;
+        height: 40px;
+    }
+    .small-header {
+        font-size: 24px;
+    }
+    .card-body {
+        padding: 20px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .highlight {
+        background-color: rgba(255, 255, 0, 0.163);
+    }
+</style>
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h1>Tareas</h1>
+            <h1 class="small-header">Tareas</h1>
         </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>ESTADO</th>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">NOMBRE</th>
+                        <th class="text-center">ESTADO</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let tarea of tareas" class="text-center">
+                    <tr *ngFor="let tarea of tareas" class="text-center" [ngClass]="{'highlight': tarea.estado ===0}">
                         <td>{{tarea.id}}</td>
                         <td>{{tarea.nombre}}</td>
-                        <td>{{tarea.estado === 0 ? 'Incompleta' : (tarea.estado === 1 ? 'Finalizada' : 'Eliminada')}}</td>
+                        <td>{{tarea.estado === 0 ? 'Incompleta' : (tarea.estado === 1 ? 'Finalizado' : 'Eliminada')}}</td>
                         <td>
-                            <button (click)="Editar(tarea)" class="btn btn-warning">Editar</button>
-                            <button (click)="Delete(tarea)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+                            <img src="../../assets/edit.png" (click)="Editar(tarea)" class="btn">
+                            <img src="../../assets/delete.png" (click)="Delete(tarea)" class="btn" style="margin-left: 10px;">
                         </td>
                     </tr>
                 </tbody>
