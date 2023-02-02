@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Tareas</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>ESTADO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tarea of tareas" class="text-center">
+                        <td>{{tarea.id}}</td>
+                        <td>{{tarea.nombre}}</td>
+                        <td>{{tarea.estado === 0 ? 'Incompleta' : (tarea.estado === 1 ? 'Finalizada' : 'Eliminada')}}</td>
+                        <td>
+                            <button (click)="Editar(tarea)" class="btn btn-warning">Editar</button>
+                            <button (click)="Delete(tarea)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
