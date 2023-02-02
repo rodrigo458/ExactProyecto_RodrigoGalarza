@@ -49,6 +49,15 @@ public class TareaController {
 		return service.save(tareaActual);
 	}
 	
+	@GetMapping("/eliminadoLogico/{id}")
+	public Tarea deleteLogico(@PathVariable int id) {
+		Tarea tareaActual =service.listarId(id);
+		
+		tareaActual.setEstado(2);
+		
+		return service.save(tareaActual);
+	}
+	
 	@DeleteMapping("/eliminar/{id}")
 	public void delete(@PathVariable Integer id) {
 		service.delete(id);
